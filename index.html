@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mesto</title>
+        <link rel="stylesheet" href="./pages/index.css" />
+    </head>
+    <body class="root">
+        <header class="header">
+            <img class="header__logo" src="./images/logo.png" alt="логотип сайт место">
+        </header>
+        <main class="content">
+            <section class="profile">
+                <div class="profile__container">
+                    <button type="button" class="profile__avatar-button">
+                        <img class="profile__avatar" src="./images/jaques.jpg" alt="Картинка Жака">
+                    </button>
+                    <div class="profile__info">
+                        <div class="profile__paragraph">
+                            <h1 class="profile__title">Жак-Ив Кусто</h1>
+                            <button type="button" class="profile__edit-button" id="popup__open"></button>
+                        </div>    
+                        <p class="profile__subtitle">Исследователь океана</p>
+                    </div>
+                    
+                </div>
+                <button type="button" class="profile__add-button"></button>
+            </section>
+
+            <section class="elements">
+                <div class="elements__card">
+                    <img class="elements__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Картинка Карачаевска">
+                    <h2 class="elements__title">Карачаевск</h2>
+                    <button type="button" class="elements__like" id="elements__like"></button>
+                    <!-- <button type="button" class="elements__like-active" id="elements__like"></button> -->
+                </div>
+                <div class="elements__card">
+                    <img class="elements__image" src="./images/Гора Эльбрус.jpg" alt="Гора Эльбрус">
+                    <h2 class="elements__title">Гора Эльбрус</h2>
+                    <button type="button" class="elements__like" id="elements__like"></button>
+                </div>
+                <div class="elements__card">
+                    <img class="elements__image" src="./images/Домбай.jpg" alt="Домбай">
+                    <h2 class="elements__title">Домбай</h2>
+                    <button type="button" class="elements__like" id="elements__like"></button>
+                </div>
+                <div class="elements__card">
+                    <img class="elements__image" src="./images/НомердваГора.jpg" alt="Гора Эльбрус">
+                    <h2 class="elements__title">Гора Эльбрус</h2>
+                    <button type="button" class="elements__like" id="elements__like"></button>
+                </div>
+                <div class="elements__card">
+                    <img class="elements__image" src="./images/Домбай.jpg" alt="Домбай">
+                    <h2 class="elements__title">Домбай</h2>
+                    <button type="button" class="elements__like" id="elements__like"></button>
+                </div>
+                <div class="elements__card">
+                    <img class="elements__image" src="./images/Карачаеваномердва.jpg" alt="Картинка Карачаевска">
+                    <h2 class="elements__title">Карачаево-Ч...</h2>
+                    <button type="button" class="elements__like" id="elements__like"></button>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <p class="footer__paragraph">© 2020 Mesto Russia</p>
+        </footer>
+        <div class="popup" id="popup">
+            <div class="popup__container">
+                <div class="popup__body" id="popup__body">
+                    <h3 class="popup__title">Редактировать&nbsp;профиль</h3>
+                    <form class="popup__form">
+                        <input type="text" class="popup__input" placeholder="Имя">
+                        <input type="text" class="popup__input-job" placeholder="Род занятий">
+                        <button class="popup__button" type="submit">Сохранить</button>
+                    </form>
+                    <div class="popup__close" id="popup__close">&#10006</div>
+                </div>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
