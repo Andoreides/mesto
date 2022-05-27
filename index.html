@@ -8,21 +8,21 @@
     </head>
     <body class="root">
         <header class="header">
-            <img class="header__logo" src="./images/logo.png" alt="логотип сайт место">
+            <img class="header__logo" src="./images/fistreview.svg" alt="логотип сайт место">
         </header>
         <main class="content">
             <section class="profile">
-                <div class="profile__container">
-                    <button type="button" class="profile__avatar-button">
-                        <img class="profile__avatar" src="./images/jaques.jpg" alt="Картинка Жака">
-                    </button>
+                <!-- <div class="profile__container"> -->
+
+                    <img class="profile__avatar" src="./images/jaques.jpg" alt="Картинка Жака">
+
                     <div class="profile__info">
-                        <div class="profile__paragraph">
+                        <!-- <div class="profile__paragraph"> -->
                             <h1 class="profile__title">Жак-Ив Кусто</h1>
                             <button type="button" class="profile__edit-button" id="popup__open"></button>
-                        </div>    
+                        <!-- </div>     -->
                         <p class="profile__subtitle">Исследователь океана</p>
-                    </div>
+                    <!-- </div> -->
                     
                 </div>
                 <button type="button" class="profile__add-button"></button>
@@ -67,17 +67,17 @@
         </footer>
         <div class="popup" id="popup">
             <div class="popup__container">
-                <div class="popup__body" id="popup__body">
+                <!-- <div class="popup__body" id="popup__body"> -->
                     <h3 class="popup__title">Редактировать&nbsp;профиль</h3>
-                    <form class="popup__form">
-                        <input type="text" class="popup__input" placeholder="Имя">
-                        <input type="text" class="popup__input-job" placeholder="Род занятий">
+                    <form class="popup__form" name="foorm">
+                        <input type="text" class="popup__input" placeholder="Имя" name="input__name">
+                        <input type="text" class="popup__input popup__input-job" placeholder="Род занятий" name="input__name-job">
                         <button class="popup__button" type="submit">Сохранить</button>
                     </form>
-                    <div class="popup__close" id="popup__close">&#10006;</div>
-                </div>
+                    <button class="popup__close" id="popup__close" type="button"></button>
+                <!-- </div> -->
             </div>
         </div>
-        <script src="index.js"></script>
+        <script src="./scripts/index.js"></script>
     </body>
 </html>

@@ -1,10 +1,10 @@
 .profile__info {
     display: flex;
-    /* flex-wrap: wrap;
-    align-items: center; */
-    /* margin-right: auto; */
-    flex-direction: column;
-    margin: 25.75px 0 0 0;
+    flex-wrap: wrap;
+    /* align-items: center;  */
+    margin-right: auto;
+    /* flex-direction: column;
+    margin: 25.75px 0 0 0; */
 }
 
 /* @media screen and (max-width: 767px) {
@@ -12,3 +12,12 @@
         margin: 22.25px auto 0 45px;
     }
 } */
+
+@media (max-width: 768px) {
+    .profile__info {
+        max-width: 100%;
+        margin-right: 0;
+        justify-content: center;
+        margin-top: 22.25px;
+    }
+}

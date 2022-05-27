@@ -9,6 +9,7 @@
     padding: 0;
     border: none;
     background-image: url(../../../images/like.png);
+    background-color: #FFFFFF;
     cursor: pointer;
 }
 
@@ -16,7 +17,7 @@
     opacity: 0.5;
 }
 
-.elements__like-active {
+.elements__like.activ {
     display: block;
     position: absolute;
     width: 22px;
@@ -26,6 +27,7 @@
     margin: 0;
     padding: 0;
     border: none;
-    background-image: url(../../../../images/Union.png);
+    background-image: url(../../../images/Union.png);
+    
     cursor: pointer;
 }

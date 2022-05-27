@@ -1,16 +1,16 @@
 .popup__body {
-    margin: auto;
+    /* margin: auto;
     border-radius: 10px;
     position: relative;
     text-align: center;
     width: 430px;
-    height: 330px;
-    background-color: #ffff;
+    
+    background-color: #ffff; */
 }
 
 @media screen and (max-width: 642px) {
     .popup__body {
         width: 282px;
-        height: 322px;
+       
     }
 }
