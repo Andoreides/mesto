@@ -4,7 +4,7 @@ const popUp = document.getElementById('popup');
 const titleElement = document.querySelector('.profile__title');
 const nameFieldElement = document.querySelector('.popup__input');
 const subtitleElement = document.querySelector('.profile__subtitle');
-const secondnameFieldElement = document.querySelector('.popup__input-job');
+const secondnameFieldElement = document.querySelector('.popup__input_job');
 const saveForm = document.querySelector('.popup__form')
 
 
@@ -19,7 +19,8 @@ function closePopupfunc () {
 }
 
 closePopup.addEventListener('click', () => {
-    popUp.classList.remove('active');
+    closePopupfunc();
+    // popUp.classList.remove('active');
     // titleElement.textContent = nameFieldElement.value;
     // subtitleElement.textContent = secondnameFieldElement.value;
 })
@@ -32,20 +33,20 @@ saveForm.addEventListener('submit', function(event) {
     closePopupfunc();
 })
 
-const likeNA = document.querySelector('.elements__like');
+// const likeNA = document.querySelector('.elements__like');
 
 
-function liked(likeNA) {
-    likeNA.classList.remove('elements__like');
-    likeNA.classList.add('elements__like-active');
-}
-
-// function notliked(likeNA) {
-//     likeNA.classList.add('elements__like');
-//     likeNA.classList.remove('elements__like-active');
+// function liked(likeNA) {
+//     likeNA.classList.remove('elements__like');
+//     likeNA.classList.add('elements__like-active');
 // }
 
-likeNA.addEventListener('click', function() {
-    liked(likeNA);
-})
+// // function notliked(likeNA) {
+// //     likeNA.classList.add('elements__like');
+// //     likeNA.classList.remove('elements__like-active');
+// // }
+
+// likeNA.addEventListener('click', function() {
+//     liked(likeNA);
+// })
 
