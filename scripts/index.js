@@ -4,7 +4,7 @@ const popUp = document.getElementById('popup');
 const titleElement = document.querySelector('.profile__title');
 const nameFieldElement = document.querySelector('.popup__input');
 const subtitleElement = document.querySelector('.profile__subtitle');
-const secondnameFieldElement = document.querySelector('.popup__input_job');
+const secondnameFieldElement = document.querySelector('.popup__input_type_job');
 const saveForm = document.querySelector('.popup__form')
 
 

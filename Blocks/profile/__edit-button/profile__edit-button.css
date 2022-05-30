@@ -22,10 +22,11 @@
 
 @media screen and (max-width: 767px) {
     .profile__edit-button{
-        margin: 10px 0 0 10px;
+        margin: 10px 0 0 5px;
     }
 }
 
 .profile__edit-button:hover {
     opacity: 0.6;
 }
+

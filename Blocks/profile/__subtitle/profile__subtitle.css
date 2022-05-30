@@ -20,10 +20,11 @@
     .profile__subtitle {
         text-align: center;
         width: 100%;
-        margin: 14px 19px 0 0;
+        margin: 14px 0 0 0;
         font-style: normal;
         font-size: 14px;
         line-height: 17px;
 
     }
 }
+
