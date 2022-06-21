@@ -38,10 +38,10 @@
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__input/_type/popup__input_type_job.css);
 @import url(../blocks/popup/__zoom/popup__zoom.css);
-@import url(../blocks/popup/__container/__type/popup__container_type_zoom.css);
+@import url(../blocks/popup/__container/__type/popup__gallery.css);
 
 
 
 
-@import url(../blocks/popup/__image/popup__img_type_zoom.css);
+@import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__zoom-paragraph/popup__zoom-paragraph.css);

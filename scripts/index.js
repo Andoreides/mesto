@@ -12,13 +12,13 @@ const elementsInput = document.getElementById('cardName')
 const submitButton1 = document.getElementById('butttt')
 const elementsTitle = document.querySelector('.elements__title')
 const elementsImageLink = document.getElementById('inputskii__name-job')
-const popUpZoom = document.querySelector('.popup__zoom')
+const popUpZoom = document.querySelector('.popup_type_zoom')
 const closeZoom = document.getElementById('popZoom__close')
 const allCards = [];
 const loh = document.querySelector('.elements__image');
-const bigImage = document.querySelector('.popup__img_type_zoom');
+const bigImage = document.querySelector('.popup__image');
 const lastId = allCards.length ? (allCards[allCards.length - 1].id + 1) : 1;
-const levloh = document.querySelector('.popup__container_type_zoom_1');
+
 const zoomText = document.querySelector('.popup__zoom-paragraph');
 const initialCards = [
     {
