@@ -30,37 +30,7 @@
             </section>
 
             <section class="elements">
-                <div class="elements__card">
-                    <img class="elements__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Картинка Карачаевска">
-                    <h2 class="elements__title">Карачаевск</h2>
-                    <button type="button" class="elements__like"></button>
-                    <!-- <button type="button" class="elements__like-active" id="elements__like"></button> -->
-                </div>
-                <div class="elements__card">
-                    <img class="elements__image" src="./images/ГораЭльбрус.jpg" alt="Гора Эльбрус">
-                    <h2 class="elements__title">Гора Эльбрус</h2>
-                    <button type="button" class="elements__like"></button>
-                </div>
-                <div class="elements__card">
-                    <img class="elements__image" src="./images/Домбай.jpg" alt="Домбай">
-                    <h2 class="elements__title">Домбай</h2>
-                    <button type="button" class="elements__like"></button>
-                </div>
-                <div class="elements__card">
-                    <img class="elements__image" src="./images/НомердваГора.jpg" alt="Гора Эльбрус">
-                    <h2 class="elements__title">Гора Эльбрус</h2>
-                    <button type="button" class="elements__like"></button>
-                </div>
-                <div class="elements__card">
-                    <img class="elements__image" src="./images/Домбай.jpg" alt="Домбай">
-                    <h2 class="elements__title">Домбай</h2>
-                    <button type="button" class="elements__like"></button>
-                </div>
-                <div class="elements__card">
-                    <img class="elements__image" src="./images/Карачаеваномердва.jpg" alt="Картинка Карачаевска">
-                    <h2 class="elements__title">Карачаево-Ч...</h2>
-                    <button type="button" class="elements__like"></button>
-                </div>
+
             </section>
         </main>
         <footer class="footer">
@@ -77,6 +47,24 @@
                     </form>
                     <button class="popup__close" id="popup__close" type="button"></button>
                 <!-- </div> -->
+            </div>
+        </div>
+        <div class="popup" id="popup__image">
+            <div class="popup__container">
+                <h3 class="popup__title">Новое место</h3>
+                <form class="popup__form" id="popup__form-img" name="forma">
+                    <input type="text" class="popup__input" placeholder="Название" name="inputskii__name" id="cardName">
+                    <input type="url" class="popup__input popup__input_type_job" placeholder="Ссылка на картинку" name="inputskii__name-job" id="inputskii__name-job">
+                    <button class="popup__button" id="butttt">Создать</button>
+                </form>
+                <button class="popup__close" id="popIm__close" type="button"></button>
+            </div>
+        </div>
+        <div class="popup popup__zoom">
+            <div class="popup__container_type_zoom">
+                <img class="popup__img_type_zoom">
+                <p class="popup__zoom-paragraph"></p>
+                <button class="popup__close" id="popZoom__close" type="button"></button>
             </div>
         </div>
         <script src="./scripts/index.js"></script>

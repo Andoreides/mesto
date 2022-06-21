@@ -10,6 +10,7 @@
     width: 430px;
     flex-direction: column;
     background-color: #ffff;
+
 }
 
 @media screen and (max-width: 640px) {

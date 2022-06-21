@@ -1,5 +1,5 @@
 .elements__like_active {
-    display: block;
+    /* display: block;
     position: absolute;
     width: 22px;
     height: 19px;
@@ -7,7 +7,8 @@
     right: 23px;
     margin: 0;
     padding: 0;
-    border: none;
+    border: none; */
     background-image: url(../../../../images/Union.png);
-    cursor: pointer;
-}
+    /* cursor: pointer;
+     background-color: #FFFFFF; */
+} 
