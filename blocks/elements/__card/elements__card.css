@@ -6,7 +6,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    overflow: hidden;
+ 
     max-width: 282px;
     max-height: calc(282px + 85px);
 }
