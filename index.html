@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Mesto</title>
         <link rel="stylesheet" href="./pages/index.css" />
-        <!-- <link rel="stylesheet" href="./pages/index.css"> -->
     </head>
     <body class="root">
         <header class="header">
@@ -13,19 +12,12 @@
         </header>
         <main class="content">
             <section class="profile">
-                <!-- <div class="profile__container"> -->
-
                     <img class="profile__avatar" src="./images/jaques.jpg" alt="Картинка Жака">
-
                     <div class="profile__info">
-                        <!-- <div class="profile__paragraph"> -->
                             <h1 class="profile__title">Жак-Ив Кусто</h1>
                             <button type="button" class="profile__edit-button" id="popup__open"></button>
-                        <!-- </div>     -->
                         <p class="profile__subtitle">Исследователь океана</p>
-                    <!-- </div> -->
-                    
-                </div>
+                    </div>
                 <button type="button" class="profile__add-button"></button>
             </section>
 
@@ -36,7 +28,7 @@
         <footer class="footer">
             <p class="footer__paragraph">© 2020 Mesto Russia</p>
         </footer>
-        <div class="popup" id="popup">
+        <div class="popup popup_type_add-name" id="popup">
             <div class="popup__container">
                 <!-- <div class="popup__body" id="popup__body"> -->
                     <h3 class="popup__title">Редактировать&nbsp;профиль</h3>
@@ -49,7 +41,7 @@
                 <!-- </div> -->
             </div>
         </div>
-        <div class="popup" id="popup__image">
+        <div class="popup popup_type_add-image" id="popup__image">
             <div class="popup__container">
                 <h3 class="popup__title">Новое место</h3>
                 <form class="popup__form" id="popup__form-img" name="forma">
@@ -67,6 +59,18 @@
                 <button class="popup__close" id="popZoom__close" type="button"></button>
             </div>
         </div>
+
+        <template id="card-template">
+            <div class="elements__card">
+              <img src="#" alt="наименование места" class="elements__image">
+              <button type="button" aria-label="del" class="elements__button-delete"></button>
+              <div class="elements__title-wrap">
+                <h2 class="elements__title"></h2>
+                <button type="button" aria-label="like" class="elements__like"></button>
+              </div>
+            </div>
+          </template>
+
         <script src="./scripts/index.js"></script>
     </body>
 </html>
