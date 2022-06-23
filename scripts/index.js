@@ -1,8 +1,8 @@
 const cardTemplate = document.querySelector('#card-template').content;
-const popUpOpen = document.querySelector('.profile__edit-button');
-const closePopup = document.querySelector('.popup__close');
+const popUpOpenProfile = document.querySelector('.profile__edit-button');
+const popupCloseProfile = document.getElementById('popup__closeProfile');
 
-const popUp = document.querySelector('.popup');
+const popUp = document.querySelector('#popupProfile');
 const namePopup = document.querySelector('.popup_type_add-name');
 const imagePopup = document.querySelector('.popup_type_add-image');
 const zoomPopup = document.querySelector('.popup_type_zoom')
@@ -11,20 +11,20 @@ const titleElement = document.querySelector('.profile__title');
 const nameFieldElement = document.querySelector('.popup__input');
 const subtitleElement = document.querySelector('.profile__subtitle');
 const secondnameFieldElement = document.querySelector('.popup__input_type_job');
-const saveFormProfile = document.querySelector('.popup__form')
+const profileForm = document.querySelector('.popup__form')
 const cardsSection = document.querySelector('.elements')
 const elementsForm = document.getElementById('popup__form-img')
 const elementsInput = document.getElementById('cardName')
-const submitButton = document.getElementById('butttt')
+// const buttonS = document.getElementById('butttt')
 const elementsTitle = document.querySelector('.elements__title')
 const elementsImageLink = document.getElementById('inputskii__name-job')
 const popUpZoom = document.querySelector('.popup_type_zoom')
 const closeZoom = document.getElementById('popZoom__close')
 const getCardByEvent = evt => evt.currentTarget.closest('.elements__card');
-const allCards = [];
+// const allCards = [];
 
 // const bigImage = document.querySelector('.popup__image');
-const lastId = allCards.length ? (allCards[allCards.length - 1].id + 1) : 1;
+// const lastId = allCards.length ? (allCards[allCards.length - 1].id + 1) : 1;
 
 const zoomText = document.querySelector('.popup__zoom-paragraph');
 const initialCards = [
@@ -58,8 +58,8 @@ const initialCards = [
   // createInitialCards();
   // createInitialCardsZoom();
 
-  popUpOpen.addEventListener('click', function() {
-    popUp.classList.add('popup_opened');
+  popUpOpenProfile.addEventListener('click', function() {
+    openPopup(popUp);
     nameFieldElement.value = titleElement.textContent;
     secondnameFieldElement.value = subtitleElement.textContent;
 })
@@ -77,12 +77,12 @@ function closePopUp(popup) {
 //     popUp.classList.remove('popup_opened');
 // }
 
-closePopup.addEventListener('click', () => {
+popupCloseProfile.addEventListener('click', () => {
     // closePopupfunc();
     closePopUp(namePopup);
 })
 
-saveFormProfile.addEventListener('submit', function(event) {
+profileForm.addEventListener('submit', function(event) {
     event.preventDefault();
     titleElement.textContent = nameFieldElement.value;
     subtitleElement.textContent = secondnameFieldElement.value;
