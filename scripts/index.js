@@ -6,7 +6,7 @@ const popUp = document.querySelector('#popupProfile');
 const namePopup = document.querySelector('.popup_type_add-name');
 const imagePopup = document.querySelector('.popup_type_add-image');
 const zoomPopup = document.querySelector('.popup_type_zoom')
-
+const popUps = document.querySelectorAll('.popup');
 const titleElement = document.querySelector('.profile__title');
 const nameFieldElement = document.querySelector('.popup__input');
 const subtitleElement = document.querySelector('.profile__subtitle');
@@ -66,16 +66,27 @@ const initialCards = [
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-
+  document.addEventListener('keydown', closingEsc);
+  document.addEventListener('click', closingByBackground);
 }
 
 function closePopUp(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closingEsc);
+  document.removeEventListener('click', closingByBackground);
 };
 
-// function closePopupfunc () {
-//     popUp.classList.remove('popup_opened');
-// }
+function closingEsc(e) {
+  if (e.key === 'Escape') {
+    popUps.forEach(closePopUp);
+  }
+}
+
+function closingByBackground(evt) {
+  if (evt.target.classList.contains('popup')) {
+    popUps.forEach(closePopUp);
+  };
+}
 
 popupCloseProfile.addEventListener('click', () => {
     // closePopupfunc();
