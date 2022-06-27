@@ -17,7 +17,7 @@ const elementsForm = document.getElementById('popup__form-img')
 const elementsInput = document.getElementById('cardName')
 // const buttonS = document.getElementById('butttt')
 const elementsTitle = document.querySelector('.elements__title')
-const elementsImageLink = document.getElementById('link__job')
+const elementsImageLink = document.getElementById('link-job')
 const popUpZoom = document.querySelector('.popup_type_zoom')
 const closeZoom = document.getElementById('popZoom__close')
 const getCardByEvent = evt => evt.currentTarget.closest('.elements__card');
