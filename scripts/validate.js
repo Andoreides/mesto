@@ -1,4 +1,4 @@
-const settings = {
+const config = {
   formSelector: '.popup__form',
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__button',
@@ -7,30 +7,27 @@ const settings = {
   errorClass: 'popup__error_visible'
 };
 
-// const form = document.querySelector(settings.formSelector)
-// const formInput = form.querySelector(settings.inputSelector)
-// const formError = form.querySelector(`.${formInput.id}-error`);
 
-const showInputError = (formElement, inputElement, errorMessage, settingsElement) => {
+const showInputError = (formElement, inputElement, errorMessage, configElements) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   
-  inputElement.classList.add(settingsElement.inputErrorClass);
+  inputElement.classList.add(configElements.inputErrorClass);
   errorElement.textContent = errorMessage;
-  errorElement.classList.add(settingsElement.errorClass);
+  errorElement.classList.add(configElements.errorClass);
 };
 
-const hideInputError = (formElement, inputElement, settingsElement) => {
+const hideInputError = (formElement, inputElement, configElements) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
-  inputElement.classList.remove(settingsElement.inputErrorClass);
-  errorElement.classList.remove(settingsElement.errorClass);
+  inputElement.classList.remove(configElements.inputErrorClass);
+  errorElement.classList.remove(configElements.errorClass);
   errorElement.textContent = '';
 };
 
-const checkInputValidity = (formElement, inputElement, settingsElement) => {
+const checkInputValidity = (formElement, inputElement, configElements) => {
   if (!inputElement.validity.valid) {
-    showInputError(formElement, inputElement, inputElement.validationMessage, settingsElement);
+    showInputError(formElement, inputElement, inputElement.validationMessage, configElements);
   } else {
-    hideInputError(formElement, inputElement, settingsElement);
+    hideInputError(formElement, inputElement, configElements);
   }
 };
 
@@ -40,37 +37,37 @@ function hasInvalidInput(inputList) {
   })
 };
 
-function toggleButtonState(inputList, buttonElement, settingsElement) {
+function toggleButtonState(inputList, buttonElement, configElements) {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add(settingsElement.inactiveButtonClass);
+    buttonElement.classList.add(configElements.inactiveButtonClass);
     buttonElement.disabled = true;
   } else {
-    buttonElement.classList.remove(settingsElement.inactiveButtonClass);
+    buttonElement.classList.remove(configElements.inactiveButtonClass);
     buttonElement.disabled = false;
   };
 };
 
-function setEventListeners(formElement, settingsElement) {
-  const inputList = Array.from(formElement.querySelectorAll(settingsElement.inputSelector));
-  const buttonElement = formElement.querySelector(settingsElement.submitButtonSelector);
-  toggleButtonState(inputList, buttonElement, settingsElement);
+function setEventListeners(formElement, configElements) {
+  const inputList = Array.from(formElement.querySelectorAll(configElements.inputSelector));
+  const buttonElement = formElement.querySelector(configElements.submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, configElements);
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
-      checkInputValidity(formElement, inputElement, settingsElement);
-      toggleButtonState(inputList, buttonElement, settingsElement);
+      checkInputValidity(formElement, inputElement, configElements);
+      toggleButtonState(inputList, buttonElement, configElements);
     });
   });
 };
 
-function enableValidation(settingsElement) {
-  console.log(settingsElement);
-  const formList = Array.from(document.querySelectorAll(settingsElement.formSelector));
+function enableValidation(configElements) {
+  console.log(configElements);
+  const formList = Array.from(document.querySelectorAll(configElements.formSelector));
   formList.forEach((formElement) => {
     formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
     });
 
-    setEventListeners(formElement, settingsElement);
+    setEventListeners(formElement, configElements);
   })
 };
-enableValidation(settings);
+enableValidation(config);
