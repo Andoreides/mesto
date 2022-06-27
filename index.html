@@ -32,11 +32,11 @@
             <div class="popup__container">
                 <!-- <div class="popup__body" id="popup__body"> -->
                     <h3 class="popup__title">Редактировать&nbsp;профиль</h3>
-                    <form class="popup__form" name="foorm" novalidate>
-                        <input type="text" class="popup__input popup__input_name" placeholder="Имя" name="name" required maxlength="40" minlength="2">
+                    <form class="popup__form" name="foorm" action="submit" novalidate>
+                        <input id="name-input" type="text" class="popup__input popup__input_name" placeholder="Имя" name="name" required maxlength="40" minlength="2">
                         <span class="popup__input-error name-input-error"></span>
-                        <input type="text" class="popup__input popup__input_type_job" placeholder="Род занятий" name="job" required maxlength="200" minlength="2">
-                        <span class="popup__input-error job-input__error"></span>
+                        <input id="job-input" type="text" class="popup__input popup__input_type_job" placeholder="Род занятий" name="job" required maxlength="200" minlength="2">
+                        <span class="popup__input-error job-input-error"></span>
                         <button class="popup__button" type="submit" id="profileclosebtn" disabled>Сохранить</button>
                     </form>
                     <button class="popup__close" id="popup__closeProfile" type="button"></button>
@@ -48,9 +48,9 @@
                 <h3 class="popup__title">Новое место</h3>
                 <form class="popup__form" id="popup__form-img" name="forma" action="submit" novalidate>
                     <input type="text" class="popup__input" placeholder="Название" name="inputskii__name" id="cardName" required maxlength="30" minlength="2">
-                    <span class="popup__input-error name__input-error"></span>
+                    <span class="popup__input-error cardName-error"></span>
                     <input type="url" class="popup__input popup__input_type_job" placeholder="Ссылка на картинку" name="inputskii__name-job" id="inputskii__name-job" required>
-                    <span class="popup__input-error link__input-error"></span>
+                    <span class="popup__input-error inputskii__name-job-error"></span>
                     <button class="popup__button" id="butttt" type="submit">Создать</button>
                 </form>
                 <button class="popup__close" id="popIm__close" type="button"></button>
