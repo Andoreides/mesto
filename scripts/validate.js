@@ -60,12 +60,11 @@ function setEventListeners(formElement, configElements) {
 };
 
 function enableValidation(configElements) {
-  console.log(configElements);
   const formList = Array.from(document.querySelectorAll(configElements.formSelector));
   formList.forEach((formElement) => {
-    formElement.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-    });
+    // formElement.addEventListener('submit', (evt) => {
+    //   evt.preventDefault();
+    // });
 
     setEventListeners(formElement, configElements);
   })
