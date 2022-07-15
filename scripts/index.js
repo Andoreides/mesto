@@ -1,8 +1,24 @@
-const cardTemplate = document.querySelector('#card-template').content;
+import Card from './Card.js';
+import FormValidator from './FormValidator.js';
+
+const config = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible',
+  templateItem: '.card-template',
+  cardsList: '.elements',
+  cardsListItemText: '.elements__title',
+  cardsListItemDelete: '.elements__button-delete',
+  cardsListLike: '.elements__like',
+  cardsLink: '.elements__image',
+};
+
+const cardTemplate = '#card-template';
 const popUpOpenProfile = document.querySelector('.profile__edit-button');
 const popupCloseProfile = document.getElementById('popup__closeProfile');
-
-// const popUpProfile = document.querySelector('#popupProfile');
 const namePopup = document.querySelector('.popup_type_add-name');
 const imagePopup = document.querySelector('.popup_type_add-image');
 const zoomPopup = document.querySelector('.popup_type_zoom')
@@ -22,10 +38,11 @@ const elementsImageLink = document.getElementById('link-job')
 const popUpZoom = document.querySelector('.popup_type_zoom')
 const closeZoom = document.getElementById('popZoom__close')
 const getCardByEvent = evt => evt.currentTarget.closest('.elements__card');
-// const allCards = [];
 
-// const bigImage = document.querySelector('.popup__image');
-// const lastId = allCards.length ? (allCards[allCards.length - 1].id + 1) : 1;
+const formElementProfile = document.querySelector('.popup__form-name')
+const formElementCard = document.querySelector('.popup__form-image')
+const formEditProfileName = formElementProfile.getAttribute('name');
+const formCardName = formElementCard.getAttribute('name');
 
 const zoomText = document.querySelector('.popup__zoom-paragraph');
 const initialCards = [
@@ -56,13 +73,12 @@ const initialCards = [
   ];
 
 
-  // createInitialCards();
-  // createInitialCardsZoom();
 
   popUpOpenProfile.addEventListener('click', function() {
     openPopup(namePopup);
     nameFieldElement.value = titleElement.textContent;
     secondnameFieldElement.value = subtitleElement.textContent;
+    formValidate[formEditProfileName].resetValidation();
 })
 
 function openPopup(popup) {
@@ -84,23 +100,15 @@ function closeByEsc(evt) {
     closePopUp(openedPopup); 
   }
 }  
-// function closingEsc(e) {
-  
 
-//   // if (e.key === 'Escape') {
-//     // popUps.forEach(closePopUp);
-//   // }
-// }
 
 function closingByBackground(evt) {
   if (evt.target.classList.contains('popup')) {
-    // popUps.forEach(closePopUp);
     closePopUp(evt.target);
   };
 }
 
 popupCloseProfile.addEventListener('click', () => {
-    // closePopupfunc();
     closePopUp(namePopup);
 })
 
@@ -108,8 +116,6 @@ profileForm.addEventListener('submit', function(event) {
     event.preventDefault();
     titleElement.textContent = nameFieldElement.value;
     subtitleElement.textContent = secondnameFieldElement.value;
-    // popUp.classList.remove('active');
-    // closePopupfunc();
     closePopUp(namePopup);
 })
 
@@ -120,6 +126,7 @@ const closeImage = document.getElementById('popIm__close');
 openImage.addEventListener('click', () => {
     
     openPopup(imagePopup);
+    formValidate[formCardName].resetform();
 })
 
 
@@ -140,7 +147,8 @@ function addFormCard(evt) {
     name: elementsInput.value,
     link: elementsImageLink.value
   };
-  renderCard(cardNew);
+  // renderCard(cardNew);
+  renderCard(createCard(cardNew));
   elementsFormCard.reset();
 
   closePopUp(imagePopup); 
@@ -151,138 +159,64 @@ function addFormCard(evt) {
 
 elementsFormCard.addEventListener('submit', addFormCard);
 
-function handleLikeButton(evt) {
-  evt.target.classList.toggle('elements__like_active');
-};
-
 function renderCard(element) {
-  const cardElement = createCard(element);
-  cardsSection.prepend(cardElement);
+  cardsSection.prepend(element);
 };
-
-function createCard(element) {
-  const cardElement = cardTemplate.querySelector('.elements__card').cloneNode(true);
-  const bigImage = cardElement.querySelector('.elements__image');
-  bigImage.addEventListener('click', () => openCard(element));
-
-  bigImage.src = element.link;
-  cardElement.querySelector('.elements__title').textContent = element.name;
-  bigImage.alt = element.name;
-
-  cardElement.querySelector('.elements__like').addEventListener('click', handleLikeButton);
-
-  cardElement.querySelector('.elements__button-delete').addEventListener('click', evt => {
-    const card = getCardByEvent(evt);
-    card.remove();
-  });
-  return cardElement;
-}
-
-initialCards.forEach(renderCard);
 
 const imagePopupCard = document.querySelector('.popup__image')
 const imagePopupTitle = document.querySelector('.popup__zoom-paragraph')
 
-function openCard(element) {
-  imagePopupCard.src = element.link;
-  imagePopupTitle.textContent = element.name;
-  imagePopupCard.alt = element.name;
+
+
+
+
+const formValidate = {};
+
+const enableValidation = () => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach((formElement) => {
+    const formValidation = new FormValidator(config, formElement);
+    const formName = formElement.getAttribute('name');
+    formValidate[formName] = formValidation;
+    formValidation.enableValidation();
+  });
+}
+
+
+const createCard = (input) => {
+  const card = new Card(input, cardTemplate, popupZoom);
+  const createdCard = card.render();
+  return createdCard;
+}
+
+initialCards.forEach((card) => { 
+  renderCard(createCard(card)); 
+});
+
+enableValidation();
+
+function popupZoom(name, link) {
+  imagePopupCard.src = link;
+  imagePopupTitle.textContent = name;
+  imagePopupCard.alt = name;
   openPopup(zoomPopup);
 };
 
 
-// submitButton.addEventListener('click', (event) => {
-//   event.preventDefault();
-//   closePopUp(imagePopup);
-//   createOneCard(elementsInput.value, elementsImageLink.value);
-//   // elementsTitle.textContent = elementsInput.value;
-//   bigImage.src = elementsImageLink.value;
-//   bigImage.alt = elementsInput.value;
-//   zoomText.textContent = elementsInput.value;
-//   elementsForm.reset();
-// })
+// function createCard(element) {
+//   const cardElement = cardTemplate.querySelector('.elements__card').cloneNode(true);
+//   const bigImage = cardElement.querySelector('.elements__image');
+//   bigImage.addEventListener('click', () => openCard(element));
 
+//   bigImage.src = element.link;
+//   cardElement.querySelector('.elements__title').textContent = element.name;
+//   bigImage.alt = element.name;
 
+//   cardElement.querySelector('.elements__like').addEventListener('click', handleLikeButton);
 
-
-// function openpopit(img) {
-//   console.log(img);
-//   openPopup(zoomPopup);
-//   // popUpZoom.classList.add('popup_opened');
-//   bigImage.src = img.target.currentSrc;
-//   zoomText.value = img.target.alt;
-//   zoomText.textContent = img.target.alt;
-// };
-
-
-
-// function handleClick (info) {
-//   bigImage.src = info.link;
-//   bigImage.alt = info.alt; 
-// }
-
-// function createOneCardZoom(pic) {
-//   bigImage.addEventListener('click', () => 
-//   handleClick(pic));
-// }
-
-// initialCards.forEach(pic => createOneCardZoom(pic));
-
-// function createOneCard(imageTitle, imageLink) {
-//   console.log(imageLink, imageTitle);
-//   // const lastId = allCards.length ? (allCards[allCards.length - 1].id + 1) : 1;
-    
-//   const template = `
-//   <img class="elements__image" src="${imageLink}" alt="${imageTitle}" onclick="openpopit(event)">
-//   <div class="elements__title">${imageTitle}</div>
-//   <button type="button" class="elements__like"></button>
-//   <button type="button" id="${lastId}" class="elements__button-delete"></button>
-//   `;
-
-
-//   const elementsSection = document.querySelector('.elements');
-//   let div = document.createElement('div');
-//     div.innerHTML = template;
-//     div.className = "elements__card";
-//   elementsSection.prepend(div);
-  
-//   allCards.push({name: imageTitle, link: imageLink, id: lastId});
-
-
-//   const like = div.querySelectorAll('.elements__like');
-//   like.forEach(function(el) {
-//   el.addEventListener('click', function(evt) {
-//       evt.target.classList.toggle('elements__like_active');
+//   cardElement.querySelector('.elements__button-delete').addEventListener('click', evt => {
+//     const card = getCardByEvent(evt);
+//     card.remove();
 //   });
-
-    
-
-//   const deleteButton = document.querySelectorAll('.elements__button-delete');
-//   deleteButton.forEach(function(del) {
-//     del.addEventListener('click', function(event) {
-//       let index = -1;
-//       const id = +event.currentTarget.id
-
-//       allCards.forEach((el,i) => {
-//         if (el.id === id) {
-//           index = i;
-//         }
-//       }) 
-
-//       allCards.splice(index, 1);
-//       event.currentTarget.parentElement.remove()
-//     })
-
-//   })
-// });
-
+//   return cardElement;
 // }
-
-
-// function createInitialCards() {
-//   initialCards.forEach(item =>
-//     createOneCard(item.name, item.link));
-//   }
-
-
-

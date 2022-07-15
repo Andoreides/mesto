@@ -32,7 +32,7 @@
             <div class="popup__container">
                 <!-- <div class="popup__body" id="popup__body"> -->
                     <h3 class="popup__title">Редактировать&nbsp;профиль</h3>
-                    <form class="popup__form" name="foorm" action="submit" novalidate>
+                    <form class="popup__form popup__form-name" name="foorm" action="submit" novalidate>
                         <input id="name-input" type="text" class="popup__input popup__input_name" placeholder="Имя" name="name" required maxlength="40" minlength="2">
                         <span class="popup__input-error name-input-error"></span>
                         <input id="job-input" type="text" class="popup__input popup__input_type_job" placeholder="Род занятий" name="job" required maxlength="200" minlength="2">
@@ -46,7 +46,7 @@
         <div class="popup popup_type_add-image" id="popup__image">
             <div class="popup__container">
                 <h3 class="popup__title">Новое место</h3>
-                <form class="popup__form" id="popup__form-img" name="forma" action="submit" novalidate>
+                <form class="popup__form popup__form-image" id="popup__form-img" name="forma" action="submit" novalidate>
                     <input type="text" class="popup__input" placeholder="Название" name="inputskii__name" id="cardName" required maxlength="30" minlength="2">
                     <span class="popup__input-error cardName-error"></span>
                     <input type="url" class="popup__input popup__input_type_job" placeholder="Ссылка на картинку" name="inputskii__name-job" id="link-job" required>
@@ -64,7 +64,7 @@
             </div>
         </div>
 
-        <template id="card-template">
+        <template id="card-template" class="card-template">
             <div class="elements__card">
               <img src="#" alt="наименование места" class="elements__image">
               <button type="button" aria-label="del" class="elements__button-delete"></button>
@@ -75,7 +75,9 @@
             </div>
           </template>
 
-        <script src="./scripts/validate.js"></script>
-        <script src="./scripts/index.js"></script>
+        <!-- <script type="module" src="./scripts/validate.js"></script> -->
+        <script type="module" src="./scripts/FormValidator.js"></script>
+        <script type="module" src="./scripts/Card.js"></script>
+        <script type="module" src="./scripts/index.js"></script>
     </body>
 </html>
