@@ -32,7 +32,7 @@ const cardsSection = document.querySelector('.elements')
 const elementsFormCard = document.getElementById('popup__form-img')
 const elementsInput = document.getElementById('cardName')
 const submitButtonDisabled = elementsFormCard.querySelector('.popup__button');
-// const buttonS = document.getElementById('butttt')
+
 const elementsTitle = document.querySelector('.elements__title')
 const elementsImageLink = document.getElementById('link-job')
 const popUpZoom = document.querySelector('.popup_type_zoom')
@@ -78,7 +78,7 @@ const initialCards = [
     openPopup(namePopup);
     nameFieldElement.value = titleElement.textContent;
     secondnameFieldElement.value = subtitleElement.textContent;
-    formValidate[formEditProfileName].resetform();
+    formValidate[formEditProfileName].resetValidation();
 })
 
 function openPopup(popup) {
@@ -90,7 +90,7 @@ function openPopup(popup) {
 function closePopUp(popup) {
   popup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeByEsc)
-  // document.removeEventListener('keydown', closingEsc);
+  
   popup.removeEventListener('mousedown', closingByBackground);
 };
 
@@ -126,7 +126,7 @@ const closeImage = document.getElementById('popIm__close');
 openImage.addEventListener('click', () => {
     
     openPopup(imagePopup);
-    formValidate[formCardName].resetform();
+    formValidate[formCardName].resetValidation();
 })
 
 
@@ -147,14 +147,13 @@ function addFormCard(evt) {
     name: elementsInput.value,
     link: elementsImageLink.value
   };
-  // renderCard(cardNew);
+  
   renderCard(createCard(cardNew));
   elementsFormCard.reset();
 
   closePopUp(imagePopup); 
   
-  // submitButtonDisabled.classList.add('popup__button_disabled')
-  // submitButtonDisabled.setAttribute('disabled', true);
+
 };
 
 elementsFormCard.addEventListener('submit', addFormCard);
@@ -202,21 +201,3 @@ function openPopupZoom(name, link) {
   openPopup(zoomPopup);
 };
 
-
-// function createCard(element) {
-//   const cardElement = cardTemplate.querySelector('.elements__card').cloneNode(true);
-//   const bigImage = cardElement.querySelector('.elements__image');
-//   bigImage.addEventListener('click', () => openCard(element));
-
-//   bigImage.src = element.link;
-//   cardElement.querySelector('.elements__title').textContent = element.name;
-//   bigImage.alt = element.name;
-
-//   cardElement.querySelector('.elements__like').addEventListener('click', handleLikeButton);
-
-//   cardElement.querySelector('.elements__button-delete').addEventListener('click', evt => {
-//     const card = getCardByEvent(evt);
-//     card.remove();
-//   });
-//   return cardElement;
-// }
