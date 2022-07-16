@@ -78,7 +78,7 @@ const initialCards = [
     openPopup(namePopup);
     nameFieldElement.value = titleElement.textContent;
     secondnameFieldElement.value = subtitleElement.textContent;
-    formValidate[formEditProfileName].resetValidation();
+    formValidate[formEditProfileName].resetform();
 })
 
 function openPopup(popup) {
@@ -153,8 +153,8 @@ function addFormCard(evt) {
 
   closePopUp(imagePopup); 
   
-  submitButtonDisabled.classList.add('popup__button_disabled')
-  submitButtonDisabled.setAttribute('disabled', true);
+  // submitButtonDisabled.classList.add('popup__button_disabled')
+  // submitButtonDisabled.setAttribute('disabled', true);
 };
 
 elementsFormCard.addEventListener('submit', addFormCard);
@@ -184,7 +184,7 @@ const enableValidation = () => {
 
 
 const createCard = (input) => {
-  const card = new Card(input, cardTemplate, popupZoom);
+  const card = new Card(input, cardTemplate, openPopupZoom);
   const createdCard = card.render();
   return createdCard;
 }
@@ -195,7 +195,7 @@ initialCards.forEach((card) => {
 
 enableValidation();
 
-function popupZoom(name, link) {
+function openPopupZoom(name, link) {
   imagePopupCard.src = link;
   imagePopupTitle.textContent = name;
   imagePopupCard.alt = name;
