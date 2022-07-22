@@ -1,5 +1,7 @@
-import Card from './Card.js';
-import FormValidator from './FormValidator.js';
+
+import Card from '../scripts/Card.js';
+import FormValidator from '../scripts/FormValidator.js';
+import '../pages/index.css';
 
 const config = {
   formSelector: '.popup__form',
@@ -201,3 +203,9 @@ function openPopupZoom(name, link) {
   openPopup(zoomPopup);
 };
 
+const numbers = [2, 3, 5];
+
+// Стрелочная функция. Не запнётся ли на ней Internet Explorer?
+const doubledNumbers = numbers.map(number => number * 2);
+
+console.log(doubledNumbers); // 4, 6, 10 
