@@ -36,7 +36,7 @@ class Card {
       _addEventListeners() {
         const bigImage = this.element.querySelector('.elements__image');
         bigImage.addEventListener('click', () => { this._openPopupZoom(this._name, this._link) });
-    
+          
         this.element.querySelector('.elements__like').addEventListener('click', this._handleLikeButton);
     
         this.element.querySelector('.elements__button-delete').addEventListener('click', (evt) => {
