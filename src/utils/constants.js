@@ -13,6 +13,8 @@ const config = {
     cardsLink: '.elements__image',
   };
 
+
+const cardTemplate = '#card-template';
 const popUpOpenProfile = document.querySelector('.profile__edit-button');
 const titleElement = document.querySelector('.profile__title');
 const nameFieldElement = document.querySelector('.popup__input');
@@ -55,4 +57,4 @@ const initialCards = [
 const openImage = document.querySelector('.profile__add-button');
   
 
-export { config, openImage, initialCards, formCardName, formEditProfileName, formElementCard, formElementProfile, elementsFormCard, cardsSection, secondnameFieldElement, subtitleElement, nameFieldElement, titleElement, popUpOpenProfile }; 
+export { config, openImage, cardTemplate, initialCards, formCardName, formEditProfileName, formElementCard, formElementProfile, elementsFormCard, cardsSection, secondnameFieldElement, subtitleElement, nameFieldElement, titleElement, popUpOpenProfile }; 

@@ -1,4 +1,4 @@
-import { config, openImage, initialCards, formCardName, formEditProfileName, formElementCard, formElementProfile, elementsFormCard, cardsSection, secondnameFieldElement, subtitleElement, nameFieldElement, titleElement, popUpOpenProfile } from '../utils/constants.js';
+import { config, cardTemplate, openImage, initialCards, formCardName, formEditProfileName, formElementCard, formElementProfile, elementsFormCard, cardsSection, secondnameFieldElement, subtitleElement, nameFieldElement, titleElement, popUpOpenProfile } from '../utils/constants.js';
 import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 import './index.css';
@@ -24,7 +24,7 @@ const enableValidation = () => {
 
 
 
-const cardTemplate = '#card-template';
+
 
 const userInfo = new UserInfo(titleElement, subtitleElement);
 const profilePoup = '.popup_type_add-name';
@@ -38,13 +38,7 @@ const popupPrfofileForm = new PopupWithForm({
 
 popupPrfofileForm.setEventListeners();
 
-popUpOpenProfile.addEventListener('click', () => {
-  const userInfoProfile = userInfo.getUserInfo();
-  nameFieldElement.value = userInfoProfile.name;
-  secondnameFieldElement.value = userInfoProfile.job;
-  formValidate[formEditProfileName].resetValidation();
-  popupPrfofileForm.open();
-});
+
 
 const elementPopup = '.popup_type_add-image';
 const popupElementForm = new PopupWithForm({
@@ -57,10 +51,7 @@ const popupElementForm = new PopupWithForm({
 });
 popupElementForm.setEventListeners();
 
-openImage.addEventListener('click', () => {
-  popupElementForm.open();
-  formValidate[formCardName].resetValidation();
-});
+
 
 const popUpZoom = '.popup_type_zoom';
 const imageBigPopup = new PopupWithImage({ popupSelector: popUpZoom });
@@ -86,6 +77,19 @@ const createCard = (item) => {
 }
 
 section.rendererElements();
+
+popUpOpenProfile.addEventListener('click', () => {
+  const userInfoProfile = userInfo.getUserInfo();
+  nameFieldElement.value = userInfoProfile.name;
+  secondnameFieldElement.value = userInfoProfile.job;
+  formValidate[formEditProfileName].resetValidation();
+  popupPrfofileForm.open();
+});
+
+openImage.addEventListener('click', () => {
+  popupElementForm.open();
+  formValidate[formCardName].resetValidation();
+});
 
 enableValidation();
 
