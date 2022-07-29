@@ -1,4 +1,4 @@
-import { config, cardTemplate, openImage, initialCards, formCardName, formEditProfileName, formElementCard, formElementProfile, elementsFormCard, cardsSection, secondnameFieldElement, subtitleElement, nameFieldElement, titleElement, popUpOpenProfile } from '../utils/constants.js';
+import { popUpZoom, elementPopup, profilePoup, config, cardTemplate, openImage, initialCards, formCardName, formEditProfileName, formElementCard, formElementProfile, elementsFormCard, cardsSection, secondnameFieldElement, subtitleElement, nameFieldElement, titleElement, popUpOpenProfile } from '../utils/constants.js';
 import Card from '../components/Card.js';
 import FormValidator from '../components/FormValidator.js';
 import './index.css';
@@ -27,7 +27,7 @@ const enableValidation = () => {
 
 
 const userInfo = new UserInfo(titleElement, subtitleElement);
-const profilePoup = '.popup_type_add-name';
+
 const popupPrfofileForm = new PopupWithForm({
   popupSelector: profilePoup,
   callbackFormSubmit: (form) => {
@@ -40,7 +40,7 @@ popupPrfofileForm.setEventListeners();
 
 
 
-const elementPopup = '.popup_type_add-image';
+
 const popupElementForm = new PopupWithForm({
   popupSelector: elementPopup,
   callbackFormSubmit: (form) => {
@@ -53,7 +53,7 @@ popupElementForm.setEventListeners();
 
 
 
-const popUpZoom = '.popup_type_zoom';
+
 const imageBigPopup = new PopupWithImage({ popupSelector: popUpZoom });
 imageBigPopup.setEventListeners();
 

@@ -25,6 +25,9 @@ const elementsFormCard = document.getElementById('popup__form-img')
 const formElementProfile = document.querySelector('.popup__form-name')
 const formElementCard = document.querySelector('.popup__form-image')
 const formEditProfileName = formElementProfile.getAttribute('name');
+const elementPopup = '.popup_type_add-image';
+const popUpZoom = '.popup_type_zoom';
+const profilePoup = '.popup_type_add-name';
 const formCardName = formElementCard.getAttribute('name');
   
 const initialCards = [
@@ -57,4 +60,4 @@ const initialCards = [
 const openImage = document.querySelector('.profile__add-button');
   
 
-export { config, openImage, cardTemplate, initialCards, formCardName, formEditProfileName, formElementCard, formElementProfile, elementsFormCard, cardsSection, secondnameFieldElement, subtitleElement, nameFieldElement, titleElement, popUpOpenProfile }; 
+export { elementPopup, profilePoup, config, openImage, cardTemplate, initialCards, formCardName, formEditProfileName, formElementCard, formElementProfile, elementsFormCard, popUpZoom, cardsSection, secondnameFieldElement, subtitleElement, nameFieldElement, titleElement, popUpOpenProfile }; 
