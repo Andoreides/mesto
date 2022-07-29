@@ -7,11 +7,11 @@
     </head>
     <body class="root">
         <header class="header">
-            <img class="header__logo" src="<%=require('../images/fistreview.svg')%>" alt="логотип сайт место">
+            <img class="header__logo" src="<%=require('./images/fistreview.svg')%>" alt="логотип сайт место">
         </header>
         <main class="content">
             <section class="profile">
-                    <img class="profile__avatar" src="<%=require('../images/jaques.jpg%>" alt="Картинка Жака">
+                    <img class="profile__avatar" src="<%=require('./images/jaques.jpg')%>" alt="Картинка Жака">
                     <div class="profile__info">
                             <h1 class="profile__title">Жак-Ив Кусто</h1>
                             <button type="button" class="profile__edit-button" id="popup__open"></button>
@@ -32,7 +32,7 @@
                 <!-- <div class="popup__body" id="popup__body"> -->
                     <h3 class="popup__title">Редактировать&nbsp;профиль</h3>
                     <form class="popup__form popup__form-name" name="foorm" action="submit" novalidate>
-                        <input id="name-input" type="text" class="popup__input popup__input_name" placeholder="Имя" name="name" required maxlength="40" minlength="2">
+                        <input id="name-input" type="text" class="popup__input popup__input_name" placeholder="Имя" name="nameProf" required maxlength="40" minlength="2">
                         <span class="popup__input-error name-input-error"></span>
                         <input id="job-input" type="text" class="popup__input popup__input_type_job" placeholder="Род занятий" name="job" required maxlength="200" minlength="2">
                         <span class="popup__input-error job-input-error"></span>
@@ -46,9 +46,9 @@
             <div class="popup__container">
                 <h3 class="popup__title">Новое место</h3>
                 <form class="popup__form popup__form-image" id="popup__form-img" name="forma" action="submit" novalidate>
-                    <input type="text" class="popup__input" placeholder="Название" name="inputskii__name" id="cardName" required maxlength="30" minlength="2">
+                    <input type="text" class="popup__input" placeholder="Название" name="name" id="cardName" required maxlength="30" minlength="2">
                     <span class="popup__input-error cardName-error"></span>
-                    <input type="url" class="popup__input popup__input_type_job" placeholder="Ссылка на картинку" name="inputskii__name-job" id="link-job" required>
+                    <input type="url" class="popup__input popup__input_type_job" placeholder="Ссылка на картинку" name="link" id="link-job" required>
                     <span class="popup__input-error link-job-error"></span>
                     <button class="popup__button" disabled id="butttt" type="submit">Создать</button>
                 </form>

@@ -1,0 +1,17 @@
+import { Popup } from './Popup.js';
+
+
+export class PopupWithImage extends Popup {
+    constructor({ popupSelector }){
+        super({ popupSelector });
+        // this.popup = document.querySelector(popupSelector);
+        this._popupImage = this.popup.querySelector('.popup__image');
+        this._popupImageTitle = this.popup.querySelector('.popup__zoom-paragraph');
+    }
+    open(title, link){
+        this._popupImage.alt = title;
+        this._popupImage.src = link;
+        this._popupImageTitle = title;
+        super.open();
+    }
+}
