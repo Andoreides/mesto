@@ -59,7 +59,7 @@ const avatarForm = document.querySelector('.popup__form-avatar')
 const btnAvatar = document.querySelector('.profile__button-zone');
 const popupAvatarName = avatarForm.getAttribute('name');
 
-const popupAvatarSelector = '.popup__avatar';
+const popupAvatarSelector = '.popup_type_avatar';
 
 
 const popupAvatarForm = new PopupWithForm({
@@ -90,7 +90,7 @@ btnAvatar.addEventListener('click', () => {
   formValidate[popupAvatarName].resetValidation();
 });
 
-const popupConfirm = '.popup__delete';
+const popupConfirm = '.popup_type_delete';
 const popupConfirmDelete = new PopupDelete({
   selectorPopup: popupConfirm,
   callback: (id, element) => {
