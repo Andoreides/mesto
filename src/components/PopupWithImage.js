@@ -2,8 +2,8 @@ import { Popup } from './Popup.js';
 
 
 export class PopupWithImage extends Popup {
-    constructor({ popupSelector }){
-        super({ popupSelector });
+    constructor({ selectorPopup }){
+        super({ selectorPopup });
         
         this._popupImage = this.popup.querySelector('.popup__image');
         this._popupImageTitle = this.popup.querySelector('.popup__zoom-paragraph');
@@ -11,7 +11,7 @@ export class PopupWithImage extends Popup {
     open(title, link){
         this._popupImage.alt = title;
         this._popupImage.src = link;
-        this._popupImageTitle = title;
+        this._popupImageTitle.textContent = title;
         super.open();
     }
 }

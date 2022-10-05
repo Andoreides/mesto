@@ -11,6 +11,8 @@ const config = {
     cardsListItemDelete: '.elements__button-delete',
     cardsListLike: '.elements__like',
     cardsLink: '.elements__image',
+    host: 'https://mesto.nomoreparties.co/v1/cohort-51',
+    token: '6d0756f8-3d52-4cd2-ad40-ebde56088891'
   };
 
 
@@ -27,8 +29,9 @@ const formElementCard = document.querySelector('.popup__form-image')
 const formEditProfileName = formElementProfile.getAttribute('name');
 const elementPopup = '.popup_type_add-image';
 const popUpZoom = '.popup_type_zoom';
-const profilePoup = '.popup_type_add-name';
+
 const formCardName = formElementCard.getAttribute('name');
+
   
 const initialCards = [
     {
@@ -60,4 +63,4 @@ const initialCards = [
 const openImage = document.querySelector('.profile__add-button');
   
 
-export { elementPopup, profilePoup, config, openImage, cardTemplate, initialCards, formCardName, formEditProfileName, formElementCard, formElementProfile, elementsFormCard, popUpZoom, cardsSection, secondnameFieldElement, subtitleElement, nameFieldElement, titleElement, popUpOpenProfile }; 
+export { elementPopup, config, openImage, cardTemplate, initialCards, formCardName, formEditProfileName, formElementCard, formElementProfile, elementsFormCard, popUpZoom, cardsSection, secondnameFieldElement, subtitleElement, nameFieldElement, titleElement, popUpOpenProfile }; 

@@ -7,8 +7,14 @@ export class Section {
     addItem(elements){
         this._containerSelector.prepend(elements);
     }
-    rendererElements(){
-        this._items.forEach((element) => {
+    addCard(el){
+        this._containerSelector.append(el);
+    }
+    removeCard(el){
+        el.remove();
+    }
+    rendererElements(items){
+        items.forEach((element) => {
             this._renderer(element);
         });
     }

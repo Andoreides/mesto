@@ -1,11 +1,13 @@
 import { Popup } from './Popup.js';
 
 export class PopupWithForm extends Popup {
-    constructor({ popupSelector, callbackFormSubmit }){
-        super({ popupSelector });
-        this.callbackFormSubmit = callbackFormSubmit;
+    constructor({ selectorPopup, callbackFormSubmit }){
+        super({ selectorPopup });
+        this._callbackFormSubmit = callbackFormSubmit;
         this._popupForm = this.popup.querySelector('.popup__form');
-        this._popupInputs = this.popup.querySelectorAll('.popup__input');
+        this._popupInputs = Array.from(this.popup.querySelectorAll('.popup__input'));
+        this._btnSubmit = this._popupForm.querySelector('.popup__button');
+        this._textNew = this._btnSubmit.textContent;
     }
     _getInputValues(){
         this._inputValues = {};
@@ -16,6 +18,13 @@ export class PopupWithForm extends Popup {
         })
         return this._inputValues;
     }
+    loadingProcces(isLoading){
+        if (isLoading) {
+            this._btnSubmit.textContent = 'Сохранение...';
+        } else {
+            this._btnSubmit.textContent = this._textNew;
+        }
+    }
     close(){
         super.close();
         this._popupForm.reset();
@@ -24,8 +33,7 @@ export class PopupWithForm extends Popup {
         super.setEventListeners();
         this._popupForm.addEventListener('submit', (evt) => {
             evt.preventDefault();
-            this.callbackFormSubmit(this._getInputValues());
-            this._popupForm.reset();
+            this._callbackFormSubmit(evt, this._getInputValues());
         })
     }
 }

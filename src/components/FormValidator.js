@@ -3,10 +3,12 @@ class FormValidator {
         this._config = config;
         
         this._selectorForm = selectorForm;
+        
         this.input = config.inputSelector;
         this.inputList = Array.from(this._selectorForm.querySelectorAll(this.input));
         this.btnSubmit = config.submitButtonSelector;
         this.buttonElement = this._selectorForm.querySelector(this.btnSubmit);
+        
         this.inactiveButtonClass = config.inactiveButtonClass;
         this.inputErrorClass = config.inputErrorClass;
         this.errorClass = config.errorClass;
@@ -51,6 +53,7 @@ class FormValidator {
             this.buttonElement.classList.remove(this.inactiveButtonClass);
             this.buttonElement.disabled = false;
           };
+          
     }
     _setEventListeners(){
         this._toggleButtonState(this.inputList);
