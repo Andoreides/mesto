@@ -20,21 +20,6 @@ export class Api {
         })
         .then(this._hadleError);
     }
-    createCard(element){
-        return fetch(`${this._host}/cards`, {
-            method: 'POST',
-            headers: {
-                authorization: this._token,
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name: element.name,
-                link: element.link
-            }),
-        })
-        .then(this._hadleError);
-    }
-
     getUserInfo() {
         return fetch(`${this._host}/users/me`, {
             headers: {
@@ -54,6 +39,20 @@ export class Api {
             body: JSON.stringify({
                 name: info.nameProf,
                 about: info.ajob
+            }),
+        })
+        .then(this._hadleError);
+    }
+    createCard(element){
+        return fetch(`${this._host}/cards`, {
+            method: 'POST',
+            headers: {
+                authorization: this._token,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name: element.name,
+                link: element.link
             }),
         })
         .then(this._hadleError);
@@ -103,6 +102,5 @@ export class Api {
         })
         .then(this._hadleError);
     }
-
     
 }

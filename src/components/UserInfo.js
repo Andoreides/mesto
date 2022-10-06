@@ -15,9 +15,10 @@ export class UserInfo {
         return info;
     }
     setUserInfo(data){
-        this.name.textContent = data.name;
-        this.about.textContent = data.about;
-        
+        if(data.name) {
+            this.name.textContent = data.name;
+            this.about.textContent = data.about;
+        }
     }
     getUserID(){
         return this.id;

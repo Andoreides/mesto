@@ -29,9 +29,7 @@ Promise.all([
   .catch((err) => {
     console.log(err);
   })
-  .catch((err) => {
-    console.log(err);
-  })
+
 
 const formValidate = {};
 
@@ -45,22 +43,17 @@ const enableValidation = () => {
   });
 }
 
-
 const userInfo = new UserInfo({
   titleSelector: '.profile__title',
   subtitleSelector: '.profile__subtitle',
   avatarSelector: '.profile__avatar'
 });
 
-
-
-
 const avatarForm = document.querySelector('.popup__form-avatar')
 const btnAvatar = document.querySelector('.profile__button-zone');
 const popupAvatarName = avatarForm.getAttribute('name');
 
 const popupAvatarSelector = '.popup_type_avatar';
-
 
 const popupAvatarForm = new PopupWithForm({
   selectorPopup: popupAvatarSelector,
@@ -82,7 +75,6 @@ const popupAvatarForm = new PopupWithForm({
   
 });
 
-
 popupAvatarForm.setEventListeners();
 
 btnAvatar.addEventListener('click', () => {
@@ -90,9 +82,9 @@ btnAvatar.addEventListener('click', () => {
   formValidate[popupAvatarName].resetValidation();
 });
 
-const popupConfirm = '.popup_type_delete';
+const selectorConfirmPopup = '.popup_type_delete';
 const popupConfirmDelete = new PopupDelete({
-  selectorPopup: popupConfirm,
+  selectorPopup: selectorConfirmPopup,
   callback: (id, element) => {
     api.deleteCard(id)
       .then(() => {
@@ -106,9 +98,9 @@ const popupConfirmDelete = new PopupDelete({
 }) 
 popupConfirmDelete.setEventListeners();
 
-const profilePoup = '.popup_type_add-name';
+const selectorEditProfilePopup = '.popup_type_add-name';
 const popupPrfofileForm = new PopupWithForm({
-  selectorPopup: profilePoup,
+  selectorPopup: selectorEditProfilePopup,
   callbackFormSubmit: (evt, data) => {
     evt.preventDefault();
     popupPrfofileForm.loadingProcces(true);
@@ -127,7 +119,6 @@ const popupPrfofileForm = new PopupWithForm({
 })
 popupPrfofileForm.setEventListeners();
 
-
 popUpOpenProfile.addEventListener('click', () => {
   const profileInfo = userInfo.getUserInfo();
   nameFieldElement.value = profileInfo.name;
@@ -136,16 +127,16 @@ popUpOpenProfile.addEventListener('click', () => {
   popupPrfofileForm.open();
 });
 
-const formElementCard2 = '.popup_type_add-image';
+const selectorAddCardPopup = '.popup_type_add-image';
 const popupCardForm = new PopupWithForm({
-  selectorPopup: formElementCard2,
+  selectorPopup: selectorAddCardPopup,
   callbackFormSubmit: (evt, data) => {
     evt.preventDefault();
     popupCardForm.loadingProcces(true);
     api.createCard(data)
       .then((data) => {
         const card = createCard(data);
-        section.addCard(card);
+        section.prependItem(card);
         popupCardForm.close();
       })
       .catch((err) => {
@@ -173,18 +164,18 @@ const openPopupZoom = (title, link) => {
   popupZoomCreate.open(title, link);
 }
 
-const deleteCard = (id, element) => {
+const openConfirmationPopup = (id, element) => {
   popupConfirmDelete.open(id, element);
 }
 
 const createCard = (item) => {
   const userID = userInfo.getUserID();
-  const oneCard = new Card(item, cardTemplate, userID, openPopupZoom, deleteCard, {
+  const card = new Card(item, cardTemplate, userID, openPopupZoom, openConfirmationPopup, {
     setLikes: () => {
       api.likePointer(item._id)
         .then((res) => {
-          oneCard.likeAmount(res.likes);
-          oneCard.cardLike();
+          card.likeAmount(res.likes);
+          card.cardLike();
         })
         .catch((err) => {
           console.log(err);
@@ -193,15 +184,24 @@ const createCard = (item) => {
     deleteLikes: () => {
       api.deleteLike(item._id)
         .then((res) => {
-          oneCard.likeAmount(res.likes);
-          oneCard.cardDisLike();
+          card.likeAmount(res.likes);
+          card.cardDisLike();
         })
         .catch((err) => {
           console.log(err);
         })
+    },
+    handleConfirmnDelete: () => {
+      api.deleteCard(item._id)
+      .then(() => {
+        card._handleButtontnDelete();
+      })
+      .catch((err) => {
+        console.log(err);
+      })
     }
   })
-  const createdCard = oneCard.render();
+  const createdCard = card.render();
   return createdCard; 
 }
 
@@ -209,12 +209,8 @@ const section = new Section({
   items: [],
   renderer: (item) => {
     const createdItem = createCard(item);
-    section.addCard(createdItem);
+    section.appendItem(createdItem);
   }
 }, cardsSection);
 
-
-
-
 enableValidation();
-

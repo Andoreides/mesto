@@ -1,7 +1,7 @@
 
 
 class Card {
-    constructor(input, selector, userID, openPopupZoom, deleteCard, { setLikes, deleteLikes }) {
+    constructor(input, selector, userID, openPopupZoom, deleteCard, { setLikes, deleteLikes, handleConfirmnDelete }) {
         this._name = input.name;
         this._link = input.link;
         this._selector = selector;
@@ -13,6 +13,7 @@ class Card {
         this._deleteLikes = deleteLikes;
         this._setLikes = setLikes;
         this._deleteCard = deleteCard;
+        this._handleConfirmnDelete = handleConfirmnDelete;
       }
     
       _getTemplate() {
@@ -89,12 +90,6 @@ class Card {
       }
     
     }
-
-
-
-
-
-
 
 export default Card;
 

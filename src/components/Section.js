@@ -4,11 +4,11 @@ export class Section {
         this._renderer = renderer;
         this._items = items;
     }
-    addItem(elements){
-        this._containerSelector.prepend(elements);
+    prependItem(element){
+        this._containerSelector.prepend(element);
     }
-    addCard(el){
-        this._containerSelector.append(el);
+    appendItem(element){
+        this._containerSelector.append(element);
     }
     removeCard(el){
         el.remove();
